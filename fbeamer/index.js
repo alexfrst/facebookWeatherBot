@@ -99,6 +99,7 @@ sendMessage ( payload ) {
 
         } 
         else {
+            console.log(error)
           reject ( error ) ;
         }
         
