@@ -82,6 +82,7 @@ else {
 
 
 sendMessage ( payload ) {
+    console.log(payload);
   return new Promise (( resolve , reject ) => {
   request ({
     uri : `https://graph.facebook.com/${apiVersion}/me/messages`,
@@ -89,6 +90,7 @@ sendMessage ( payload ) {
     (error , response , body ) => {
         if (! error && response.statusCode === 200) 
         {
+            console.log("je suis dans le if")
           resolve ({
           mid: body . message_id
           }) ;
