@@ -120,7 +120,8 @@ content : message . text
 txt(id,text,messaging_type = 'RESPONSE') {
  /* this is an object for creating the payload according
 to Table 1 in the following .*/
-  let obj = {
+    console.log(text);
+    let obj = {
     messaging_type ,
     recipient :{
       id:id
