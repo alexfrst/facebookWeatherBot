@@ -100,6 +100,7 @@ sendMessage ( payload ) {
         } 
         else {
             console.log(error)
+            console.log(error)
           reject ( error ) ;
         }
         
@@ -130,7 +131,7 @@ to Table 1 in the following .*/
       id:id
       } ,
     message : {
-      text:text,
+      text:text
       }
     }
   return this.sendMessage (obj ) ;
