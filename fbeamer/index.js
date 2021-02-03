@@ -82,6 +82,8 @@ else {
 
 
 sendMessage ( payload ) {
+    console.log(this.verifyToken);
+    console.log(this.pageAccessToken);
     console.log(payload);
   return new Promise (( resolve , reject ) => {
   request ({
