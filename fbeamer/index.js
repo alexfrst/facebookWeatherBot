@@ -100,7 +100,7 @@ sendMessage ( payload ) {
         } 
         else {
             console.log(error)
-            console.log(error)
+            console.log(response)
           reject ( error ) ;
         }
         
