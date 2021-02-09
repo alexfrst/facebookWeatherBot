@@ -27,7 +27,7 @@ server.post ('/fb', (req , res , next ) =>{
     try {
           const result = await weatherQueries(data.content)
           console.log("result",result)
-          await f.txt(data.sender, result) ;
+          await f.txt(data.sender, result);
         }
     catch(e) {
       console.log(e) ;  

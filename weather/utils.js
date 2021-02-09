@@ -25,22 +25,22 @@ const getWeatherAtNoon = (day,json) =>{
 }
 
 const advancedPretiffy = (json,day,city)=>{
-    let status = '\x1b[33msunny\x1b[0m';
+    let status = 'sunny';
     if(json.weather[0].main == 'Clouds'){
-        status = "\x1b[2m\x1b[37mcloudy\x1b[0m"
+        status = "cloudy"
     }else if(json.weather[0].main == "Rainning"){
-        status = "\x1b[34mraining\x1b[0m"
+        status = "raining"
     }else if(json.weather[0].main == "Clear"){
-        status = "\x1b[32mclear\x1b[0m"
+        status = "clear"
     }
-    let tempStatus = "\x1b[31mhot\x1b[0m"
+    let tempStatus = "hot"
     const temp = json.main.temp
     if(temp <= 0){
-        tempStatus = "\x1b[36mvery cold\x1b[0m"
+        tempStatus = "very cold"
     }else if(temp <= 10){
-        tempStatus = "\x1b[34mcold\x1b[0m"
+        tempStatus = "cold"
     }else if(temp <= 20){
-        tempStatus = "\x1b[33mwarm\x1b[0m"
+        tempStatus = "warm"
     }
 
     if(day == 0 || day=="today"){
@@ -54,23 +54,23 @@ const advancedPretiffy = (json,day,city)=>{
 }
 
 const getWeatherCaracteristics = json =>{
-    let status = '\x1b[33msunny\x1b[0m';
+    let status = 'sunny';
     if(json.weather[0].main == 'Clouds'){
-        status = "\x1b[2m\x1b[37mcloudy\x1b[0m"
+        status = "cloudy"
     }else if(json.weather[0].main == "Rainning"){
-        status = "\x1b[34mraining\x1b[0m"
+        status = "raining"
     }else if(json.weather[0].main == "Clear"){
-        status = "\x1b[32mclear\x1b[0m"
+        status = "clear"
     }
 
-    let tempStatus = "\x1b[31mhot\x1b[0m"
+    let tempStatus = "hot"
     const temp = json.main.temp
     if(temp <= 0){
-        tempStatus = "\x1b[36mvery cold\x1b[0m"
+        tempStatus = "very cold"
     }else if(temp <= 10){
-        tempStatus = "\x1b[34mcold\x1b[0m"
+        tempStatus = "cold"
     }else if(temp <= 20){
-        tempStatus = "\x1b[33mwarm\x1b[0m"
+        tempStatus = "warm"
     }
     return [status, tempStatus]
 }
@@ -101,15 +101,15 @@ const GetWeatherAssertionResults = (json,values)=>{
     let resultString = ""
     if(values.time == "today"||values.time =="Undefined"){
         if(getWeatherCaracteristicsV2(json).includes(values.weather)){
-            resultString = `Yes it is \x1b[4m${values.weather}\x1b[0m today in ${values.city}`
+            resultString = `Yes it is ${values.weather} today in ${values.city}`
         }else{
-            resultString = `No it isn't \x1b[4m${values.weather}\x1b[0m today in ${values.city}`
+            resultString = `No it isn't ${values.weather} today in ${values.city}`
         }
     }else{
         if(getWeatherCaracteristicsV2(json).includes(values.weather)){
-            resultString = `Yes it will be \x1b[4m${values.weather}\x1b[0m ${values.time} in ${values.city}`
+            resultString = `Yes it will be ${values.weather} ${values.time} in ${values.city}`
         }else{
-            resultString = `No it won't be \x1b[4m${values.weather}\x1b[0m ${values.time} in ${values.city}`
+            resultString = `No it won't be ${values.weather} ${values.time} in ${values.city}`
         }
     }
     return resultString + " To be more accurate:\n"+advancedPretiffy(json,values.time,values.city)
