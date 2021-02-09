@@ -1,0 +1,1 @@
+This is a facebook chatbot made for an educational use. No data is being stored or analysed have fun with it :) 
