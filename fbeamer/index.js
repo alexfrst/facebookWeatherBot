@@ -93,7 +93,7 @@ sendMessage ( payload ) {
         } 
         else {
             //console.log(error)
-            //console.log(response)
+            console.log(response)
           reject ( error ) ;
         }
         
