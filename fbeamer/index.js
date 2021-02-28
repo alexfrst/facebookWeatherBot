@@ -28,9 +28,6 @@ const mode = params ['hub.mode'],
 token = params ['hub.verify_token'],
 challenge = params ['hub.challenge'];
 try {
-  console.log(mode)
-  console.log(token)
-  console.log(this.verifyToken)
 if ( mode == 'subscribe' && token == this.verifyToken ) { 
  return res.send ( challenge ) ;
 } else {
@@ -82,9 +79,6 @@ else {
 
 
 sendMessage ( payload ) {
-    console.log(this.verifyToken);
-    console.log(this.pageAccessToken);
-    console.log(payload);
   return new Promise (( resolve , reject ) => {
   request ({
     uri : `https://graph.facebook.com/${apiVersion}/me/messages`,
@@ -92,15 +86,14 @@ sendMessage ( payload ) {
     (error , response , body ) => {
         if (! error && response.statusCode === 200) 
         {
-            console.log("je suis dans le if")
           resolve ({
           mid: body . message_id
           }) ;
 
         } 
         else {
-            console.log(error)
-            console.log(response)
+            //console.log(error)
+            //console.log(response)
           reject ( error ) ;
         }
         
@@ -124,7 +117,6 @@ content : message . text
 txt(id,text,messaging_type = 'RESPONSE') {
  /* this is an object for creating the payload according
 to Table 1 in the following .*/
-    console.log(text);
     let obj = {
     messaging_type ,
     recipient :{
@@ -137,7 +129,7 @@ to Table 1 in the following .*/
   return this.sendMessage (obj ) ;
   }
 
-image(id,messaging_type = 'RESPONSE') {
+image(id,image, messaging_type = 'RESPONSE') {
  /* this is an object for creating the payload according
 to Table 1 in the following .*/
   let obj = {
@@ -149,7 +141,7 @@ to Table 1 in the following .*/
         attachment : {
           type:"image",
           payload:{
-            url: "https://www.solutions-magazine.com/wp-content/uploads/2019/03/CHATBOT.jpg.png",
+            url:image,
             is_reusable:true,
             }
         }

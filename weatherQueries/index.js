@@ -7,7 +7,7 @@ const getString = async (reply) => {
     const cb = await matcher(reply,async cb=>{
     if(!cb.intent){
       console.log("i'm here")
-        return("Sorry i can't do that")
+        return("Sorry i can only talk about weather, time and movies")
     }else{
         if(cb.intent == "Exit"){
             return("Bye bye")

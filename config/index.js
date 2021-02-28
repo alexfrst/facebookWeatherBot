@@ -1,12 +1,11 @@
 'use strict';
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.production) {
   module.exports = {
     FB: {
       PageAccessToken: process.env.PageAccessToken,
       VerifyToken: process.env.VerifyToken
-    }
+    },
+    TMDB : process.env.TMDB
   }
-} else {
-  module.exports = require('./development.json');
 }
